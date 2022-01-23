@@ -1,17 +1,16 @@
 package org.example.proxy.impl;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
-import org.example.proxy.DataService;
+import org.example.proxy.IDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.LocalDateTime;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 @Component
-public class DataServiceImpl implements DataService {
+public class DataServiceImpl implements IDataService {
     @Autowired
     private RestTemplate restTemplate;
     @Autowired

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import java.time.Duration;
 
 @Configuration
-public class ConfigCircusBreaker {
+public class CircusBreakerBeanConfig {
     @Bean
     public CircuitBreaker countBase () {
         CircuitBreakerConfig config = CircuitBreakerConfig.custom()

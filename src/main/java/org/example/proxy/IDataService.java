@@ -1,6 +1,6 @@
 package org.example.proxy;
 
-public interface DataService {
+public interface IDataService {
     String getData();
 
     String getDateOf(String value);

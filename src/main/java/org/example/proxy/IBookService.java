@@ -1,5 +1,5 @@
 package org.example.proxy;
 
-public interface BookService {
+public interface IBookService {
     String getBooks();
 }

@@ -1,13 +1,13 @@
 package org.example.proxy.impl;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import org.example.proxy.BookService;
+import org.example.proxy.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl implements IBookService {
     @Autowired
     private RestTemplate restTemplate;
 
