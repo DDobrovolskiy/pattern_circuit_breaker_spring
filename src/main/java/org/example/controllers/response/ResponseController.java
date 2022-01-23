@@ -7,9 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/response")
 public class ResponseController {
-    @GetMapping("/test")
-    public String get() throws InterruptedException {
-        Thread.sleep(6000L);
+    @GetMapping("/sleep2000")
+    public String getSleep2000() throws InterruptedException {
+        Thread.sleep(2000L);
+        return "test";
+    }
+
+    @GetMapping("/sleep500")
+    public String getSleep500() throws InterruptedException {
+        Thread.sleep(500L);
         return "test";
     }
 }

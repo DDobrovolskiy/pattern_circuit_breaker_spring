@@ -1,5 +1,5 @@
 package org.example.proxy;
 
-public interface IBulkhead {
+public interface IBulkheadService {
     String bulkhead(String value);
 }

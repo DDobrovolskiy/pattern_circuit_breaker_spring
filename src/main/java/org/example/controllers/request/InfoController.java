@@ -1,8 +1,7 @@
 package org.example.controllers.request;
 
-import org.example.proxy.IBookService;
-import org.example.proxy.IBulkhead;
-import org.example.proxy.IDataService;
+import io.github.resilience4j.retry.Retry;
+import org.example.proxy.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,11 @@ public class InfoController {
     @Autowired
     private IDataService dataService;
     @Autowired
-    private IBulkhead bulkheadService;
+    private IBulkheadService bulkheadService;
+    @Autowired
+    private IRetryService retryService;
+    @Autowired
+    private IRateLimiterService rateLimiterService;
 
     @GetMapping("/book")
     public List<String> getBook() {
@@ -49,5 +52,20 @@ public class InfoController {
         ForkJoinTask<String> task2 = ForkJoinPool.commonPool().submit(callable);
 
         return task1.get() + task2.get();
+    }
+
+    @GetMapping("/retry")
+    public String getRetry() {
+        return retryService.retry("test");
+    }
+
+    @GetMapping("/time/true")
+    public String getTimeTrue() {
+        return rateLimiterService.getTime("/sleep500");
+    }
+
+    @GetMapping("/time/false")
+    public String getTimeTFalse() {
+        return rateLimiterService.getTime("/sleep2000");
     }
 }

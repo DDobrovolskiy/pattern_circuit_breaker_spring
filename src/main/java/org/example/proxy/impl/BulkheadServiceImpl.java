@@ -1,8 +1,7 @@
 package org.example.proxy.impl;
 
 import io.github.resilience4j.bulkhead.Bulkhead;
-import io.github.resilience4j.circuitbreaker.CircuitBreaker;
-import org.example.proxy.IBulkhead;
+import org.example.proxy.IBulkheadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -20,7 +19,7 @@ import java.util.function.Function;
 */
 
 @Component
-public class BulkheadImpl implements IBulkhead {
+public class BulkheadServiceImpl implements IBulkheadService {
     @Autowired
     private Bulkhead bulkhead;
     @Autowired
